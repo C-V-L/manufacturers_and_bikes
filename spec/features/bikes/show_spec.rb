@@ -18,7 +18,8 @@ RSpec.describe 'the bikes show page' do
     bike_2 = manufacturer.bikes.create!(name: "Cosmic Stallion", wheelsize: 700, carbon: false)
 
     visit "/bikes/#{bike.id}"
-    
+
+    expect(page).to have_content(manufacturer.name)
   end
 
 end
