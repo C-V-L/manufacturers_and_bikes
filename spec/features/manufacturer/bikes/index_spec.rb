@@ -13,8 +13,15 @@ RSpec.describe 'Manufacturer Bikes Index' do
     @bigblock = @allcity.bikes.create!(name: "Big Block", wheelsize: 275, carbon: false)
 
     visit "/manufacturers/#{@allcity.id}/bikes"
+    expect(page).to have_content(@allcity.name)
     expect(page).to have_content(@horse.name)
+    expect(page).to have_content("Wheel Size: #{@horse.wheelsize}")
+    expect(page).to have_content("Carbon: #{@horse.carbon}")
     expect(page).to have_content(@gorrilla.name)
+    expect(page).to have_content("Wheel Size: #{@gorrilla.wheelsize}")
+    expect(page).to have_content("Carbon: #{@gorrilla.carbon}")
     expect(page).to have_content(@bigblock.name)
+    expect(page).to have_content("Wheel Size: #{@bigblock.wheelsize}")
+    expect(page).to have_content("Carbon: #{@bigblock.carbon}")
   end
 end
