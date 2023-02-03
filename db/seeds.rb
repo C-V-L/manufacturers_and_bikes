@@ -22,4 +22,5 @@ Bike.destroy_all
 @tarmac = @special.bikes.create!(name: "Tarmax", wheelsize:650, carbon: false)
 @trucker = @surly.bikes.create!(name: "Disc Trucker", wheelsize: 700, carbon: false)
 @monkey = @surly.bikes.create!(name: "Karate Monkey", wheelsize: 650, carbon: false)
+@bigblock = @allcity.bikes.create!(name: "Big Block", wheelsize: 275, carbon: false)
 
