@@ -19,6 +19,6 @@ RSpec.describe 'Manufacturer Show' do
     expect(page).to_not have_content(@special.name)
     expect(page).to_not have_content("Employees: #{@special.employees}")
     expect(page).to_not have_content("Domestic: #{@special.domestic}")
-
+ 
   end
 end

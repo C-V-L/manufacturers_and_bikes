@@ -10,9 +10,9 @@ Manufacturer.destroy_all
 Bike.destroy_all
 
 # Manufacturers:
-@allcity = Manufacturer.create!(name: "All City", employees: 25, domestic: true)
+@surly = Manufacturer.create!(name: "Surly", employees:76, domestic: true, created_at: Time.now - 1.hour)
+@allcity = Manufacturer.create!(name: "All City", employees: 25, domestic: true, created_at: Time.now - 1.day)
 @special = Manufacturer.create!(name: "Specialized", employees: 1701, domestic: false)
-@surly = Manufacturer.create!(name: "Surly", employees:76, domestic: true)
 
 # Bikes:
 @horse = @allcity.bikes.create!(name: "Space Horse", wheelsize: 650, carbon: false)

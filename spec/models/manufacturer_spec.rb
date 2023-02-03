@@ -21,7 +21,7 @@ RSpec.describe Manufacturer, type: :model do
       @special = Manufacturer.create!(name: "Specialized", employees: 1701, domestic: false, created_at: Time.now - 1.hour)
       @allcity = Manufacturer.create!(name: "All City", employees: 25, domestic: true, created_at: Time.now - 1.day)
       
-      expect(Manufacturer.sort_by_created_at.to_a).to eq([@surly,@special,@allcity])
+      expect(Manufacturer.sort_by_created_at.to_a).to eq([@surly,@special,@allcity ])
     end
   end
 
