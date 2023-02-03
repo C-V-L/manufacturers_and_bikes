@@ -34,4 +34,18 @@ RSpec.describe 'Manufacturer Show' do
       expect(page).to have_content("Bikes in Production: #{@surly.bike_count}")
     end
   end
+
+  describe 'user story 10' do
+    it 'displays a link to the manufacturer/bikes page' do 
+      @surly = Manufacturer.create!(name: "Surly", employees:76, domestic: true, created_at: Time.now - 1.hour)
+      @trucker = @surly.bikes.create!(name: "Disc Trucker", wheelsize: 700, carbon: false)
+      @monkey = @surly.bikes.create!(name: "Karate Monkey", wheelsize: 650, carbon: false)
+      @bigblock = @surly.bikes.create!(name: "Big Block", wheelsize: 275, carbon: false)
+
+
+      visit "/manufacturers/#{@surly.id}"
+
+      expect(page).to have_link("@allcity.name's Bikes")
+    end
+  end
 end

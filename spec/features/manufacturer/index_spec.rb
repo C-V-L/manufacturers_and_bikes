@@ -35,7 +35,7 @@ RSpec.describe 'Manufacturer Index' do
     end
   end
 
-  describe 'user story 9 & 10' do
+  describe 'user story 8 & 9' do
     it 'displays a link to the child index page from every page' do
       @surly = Manufacturer.create!(name: "Surly", employees:76, domestic: true, created_at: Time.now - 1.hour)
       @trucker = @surly.bikes.create!(name: "Disc Trucker", wheelsize: 700, carbon: false)
