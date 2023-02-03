@@ -8,4 +8,8 @@ class Manufacturer < ApplicationRecord
   def self.sort_by_created_at
     order(created_at: :desc)
   end
+
+  def bike_count
+    bikes.count
+  end
 end
