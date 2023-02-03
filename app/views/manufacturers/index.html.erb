@@ -1,0 +1,7 @@
+<h1>Manufacturers</h1>
+
+<% @manufacturers.each do |manu| %>
+  <h3><%= manu.name %></h3>
+  <p><%=  manu.created_at %> </p>
+
+<% end %>
