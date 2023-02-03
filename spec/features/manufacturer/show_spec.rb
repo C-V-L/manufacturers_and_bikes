@@ -45,7 +45,7 @@ RSpec.describe 'Manufacturer Show' do
 
       visit "/manufacturers/#{@surly.id}"
 
-      expect(page).to have_link("@allcity.name's Bikes")
+      expect(page).to have_link("#{@surly.name}'s Bikes")
     end
   end
 end
