@@ -13,6 +13,6 @@ class ManufacturersController < ApplicationController
 
   def create
     manufacturer = Manufacturer.create(name: params[:name], employees: params[:employees], domestic: params[:domestic])
-    redirect_to "/manufacturers/#{manufacturer.id}"
+    redirect_to "/manufacturers"
   end
 end
