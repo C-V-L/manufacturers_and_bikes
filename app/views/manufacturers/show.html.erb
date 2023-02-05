@@ -1,5 +1,6 @@
 <h1><%= @manufacturer.name %></h1>
+<p><%= button_to "Update Manufacturer", "/manufacturers/#{@manufacturer.id}/edit", method: :get %></p>
 <h3><%= link_to " #{@manufacturer.name}'s Bikes", "/manufacturers/#{@manufacturer.id}/bikes" %></h3>
 <p>Number of Employees: <%= @manufacturer.employees %></p>
 <p>Domestic: <%= @manufacturer.domestic %></p>
-<p>Bikes in Production: <%= @bike_count %></p>
+<p>Bikes in Production: <%= @bike_count %></p> 

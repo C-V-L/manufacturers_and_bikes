@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get '/manufacturers', to: 'manufacturers#index'
   get '/manufacturers/:id', to: 'manufacturers#show'
   get '/manufacturers/:manufacturer_id/bikes', to: 'manufacturer_bikes#index'
-  
+  get '/manufacturers/:manufacturer_id/edit', to: 'manufacturers#edit'
+  patch '/manufacturers/:id', to: 'manufacturers#update'
 end
