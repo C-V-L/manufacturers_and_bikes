@@ -1,0 +1,9 @@
+<%= form_with url: '/manufacturers', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :number_of_employees %>
+  <%= form.text_field :employees %>
+  <%= form.label :Domestic %>
+  <%= form.text_field :domestic %>
+  <%= form.submit "Create Manufacturer" %>
+<% end %>

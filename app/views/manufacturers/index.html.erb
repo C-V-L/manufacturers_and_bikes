@@ -1,5 +1,5 @@
 <h1>Manufacturers</h1>
-
+<h2><%=  link_to "New Manufacturer", '/manufacturers/new'  %></h2>
 <% @manufacturers.each do |manu| %>
   <h3><%= manu.name %></h3>
   <p><%=  manu.created_at %> </p>
