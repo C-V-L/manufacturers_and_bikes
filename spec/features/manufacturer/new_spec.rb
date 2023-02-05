@@ -14,10 +14,15 @@ RSpec.describe '#new' do
       visit '/manufacturers/new'
 
       fill_in('Name', with: 'Giant')
+      fill_in('employees', with: 156)
+      fill_in('domestic', with: 'false')
+      click_button ('Create Manufacturer')
 
       new_manufacturer_id = Manufacturer.last.id 
       expect(current_path).to eq("/manufacturers")
       expect(page).to have_content('Giant')
+
+
     end
   end
 end

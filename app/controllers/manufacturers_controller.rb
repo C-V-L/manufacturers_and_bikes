@@ -12,7 +12,12 @@ class ManufacturersController < ApplicationController
   end
 
   def create
-    manufacturer = Manufacturer.create(name: params[:name], employees: params[:employees], domestic: params[:domestic])
+    # manufacturer = Manufacturer.create(name: params[:name], employees: params[:employees], domestic: params[:domestic])
+    manufacturer = Manufacturer.create(manufacturer_params)
     redirect_to "/manufacturers"
+  end
+
+  def manufacturer_params
+    params.permit(:name, :employees, :domestic)
   end
 end
