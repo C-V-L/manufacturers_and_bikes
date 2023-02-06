@@ -25,6 +25,12 @@ class ManufacturersController < ApplicationController
   def edit
     @manufacturer = Manufacturer.find(params[:manufacturer_id])
   end
+
+  def destroy
+    manufacturer = Manufacturer.find(params[:id])
+    manufacturer.destroy
+    redirect_to "/manufacturers"
+  end
   
 private
   def manufacturer_params

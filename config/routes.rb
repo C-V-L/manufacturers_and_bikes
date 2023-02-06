@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/manufacturers/:manufacturer_id/bikes', to: 'manufacturer_bikes#index'
   get '/manufacturers/:manufacturer_id/edit', to: 'manufacturers#edit'
   patch '/manufacturers/:id', to: 'manufacturers#update'
+  delete '/manufacturers/:id', to: 'manufacturers#destroy'
+
 end
