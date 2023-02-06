@@ -12,7 +12,7 @@ RSpec.describe '#destroy' do
 
       click_button 'Delete Manufacturer'
 
-      expect(current_path).to eq ("/manufacturers")
+      expect(current_path).to eq("/manufacturers")
       expect(page).to_not have_content("All City")
 
     end

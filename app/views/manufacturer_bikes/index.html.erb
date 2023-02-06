@@ -1,5 +1,5 @@
 <h1><%=@manufacturer.name%></h1>
-
+<h3> <%= button_to "Create Bike", "/manufacturers/#{@manufacturer.id}/bikes/new", method: :get %>
 <% @manufacturer.bikes.each do |bike| %>
   <%= link_to bike.name, "/bikes/#{bike.id}" %>
   <p>Wheel Size: <%= bike.wheelsize %></p>
