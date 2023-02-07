@@ -1,0 +1,9 @@
+<%= form_with url: "/manufacturers/#{@manufacturer.id}/bikes", method: :post, local: true do |form|  %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :wheel_size %>
+  <%= form.text_field :wheelsize %>
+  <%= form.label :carbon? %>
+  <%= form.text_field :carbon %>
+  <%= form.submit "Create Bike" %>
+<% end %>

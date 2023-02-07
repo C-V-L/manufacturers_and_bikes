@@ -18,12 +18,12 @@ RSpec.describe '#new' do
       visit "/manufacturers/#{@allcity.id}/bikes/new"
 
       fill_in('Name', with: 'Nature Cross')
-      fill_in('Wheel Size', with: 700)
+      fill_in('wheelsize', with: 700)
       fill_in('Carbon?', with: 'false')
       click_button ('Create Bike')
 
       new_bike_id = Bike.last.id 
-      expect(current_path).to eq("/manufacturers/#{@allcity.id}")
+      expect(current_path).to eq("/manufacturers/#{@allcity.id}/bikes")
       expect(page).to have_content('Nature Cross')
     end
   end
