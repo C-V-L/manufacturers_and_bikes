@@ -1,8 +1,3 @@
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with that Parent with each Child's attributes
-# (data from each column that is on the child table)
-
 require 'rails_helper'
 
 RSpec.describe 'Manufacturer Bikes Index' do
@@ -56,4 +51,17 @@ RSpec.describe 'Manufacturer Bikes Index' do
     end
   end
 
+  describe 'user story 21' do 
+    it 'a user can input a wheel size and will only see bikes with wheels larger than their input' do
+      visit "manufacturers/#{@allcity.id}/bikes"
+
+      fill_in "Minimum wheel size", with: 650
+      click_button "Filter Wheel Size"
+      
+      expect(page).to have_content @gorrilla.name
+      expect(page).to have_content @horse.name
+      expect(page).to_not have_content @bigblock.name
+
+    end
+  end
 end

@@ -24,9 +24,6 @@ RSpec.describe '#update' do
 
       expect(current_path).to eq "/bikes/#{@horse.id}"
       expect(page).to have_content "Space Horse"
-      
     end
-
-
   end
 end

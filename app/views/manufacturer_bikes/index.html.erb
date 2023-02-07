@@ -1,6 +1,11 @@
 <h1><%=@manufacturer.name%></h1>
 <h3> <%= button_to "Create Bike", "/manufacturers/#{@manufacturer.id}/bikes/new", method: :get %>
 <h3><%= link_to "Sort Bikes Alphabetically", sort: :alphabetically %></h4>
+<%= form_with url: "/manufacturers/#{@manufacturer.id}/bikes", method: :get, local: true do |form| %>
+  <%= form.label :Minimum_wheel_size %>
+  <%= form.text_field :Minimum_wheel_size %>
+  <%= form.submit "Filter Wheel Size" %>
+  <% end %>
 <% @bikes.each do |bike| %>
   <%= link_to bike.name, "/bikes/#{bike.id}" %> <%= link_to "Update #{bike.name}", "/bikes/#{bike.id}/edit" %>
   <p>Wheel Size: <%= bike.wheelsize %></p>
