@@ -1,6 +1,10 @@
 class ManufacturerBikesController < ApplicationController
   def index
     @manufacturer = Manufacturer.find(params[:manufacturer_id])
+    @bikes = @manufacturer.bikes
+    if params[:sort] == "alphabetically"
+      @bikes = @manufacturer.bikes.sort_alphabetically
+    end
   end
 
   def new
@@ -11,7 +15,11 @@ class ManufacturerBikesController < ApplicationController
     manufacturer = Manufacturer.find(params[:manufacturer_id])
     bike = manufacturer.bikes.create!(bike_params)
     redirect_to "/manufacturers/#{manufacturer.id}/bikes"
-  end 
+  end
+
+  def sort_bikes_alphabetically
+    bikes.sort_alphabetically
+  end
 
   private
   def bike_params
