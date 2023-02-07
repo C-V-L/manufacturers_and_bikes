@@ -1,6 +1,10 @@
 class BikesController < ApplicationController
   def index
-    @bikes = Bike.all
+    if params[:filter] == "by_carbon"
+      @bikes = Bike.filter_for_carbon
+    else
+      @bikes = Bike.all
+    end
   end
 
   def show

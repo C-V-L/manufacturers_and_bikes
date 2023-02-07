@@ -1,5 +1,6 @@
 <h1>Bikes</h1>
 
+<%= link_to "Carbon Bikes", filter: :by_carbon  %>
 <% @bikes.each do |bike| %>
   <h3><%= bike.name %></h3>
   <p>Wheel Size: <%= bike.wheelsize %></p>
