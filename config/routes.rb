@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/manufacturers/:manufacturer_id/edit', to: 'manufacturers#edit'
   get '/manufacturers/:manufacturer_id/bikes/new', to: 'manufacturer_bikes#new'
   post '/manufacturers/:manufacturer_id/bikes', to: 'manufacturer_bikes#create'
-
+  get '/bikes/:id/edit', to: 'bikes#edit'
+  patch '/bikes/:id', to: 'bikes#update'
   patch '/manufacturers/:id', to: 'manufacturers#update'
   delete '/manufacturers/:id', to: 'manufacturers#destroy'
 

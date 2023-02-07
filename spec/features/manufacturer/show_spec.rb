@@ -44,7 +44,6 @@ RSpec.describe 'Manufacturer Show' do
 
 
       visit "/manufacturers/#{@surly.id}"
-      save_and_open_page
       expect(page).to have_link("#{@surly.name}'s Bikes", href: "/manufacturers/#{@surly.id}/bikes")
         
     end
