@@ -41,4 +41,17 @@ RSpec.describe 'Bikes Index' do
       expect(page).to have_content(@stumpy.name)
     end
   end
+
+  describe 'user story 19' do
+    it 'next to each bike is a link to its edit page' do 
+      visit "/bikes"
+
+      expect(page).to have_link "Update #{@horse.name}"
+      expect(page).to have_link "Update #{@stumpy.name}"
+
+      click_link "Update #{@horse.name}"
+
+      expect(current_path).to eq "/bikes/#{@horse.id}/edit"
+    end
+  end
 end

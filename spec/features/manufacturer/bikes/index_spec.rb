@@ -42,4 +42,18 @@ RSpec.describe 'Manufacturer Bikes Index' do
     end
   end
 
+  describe 'user story 18' do
+    it 'next to each bike is a link to its edit page' do 
+      visit "manufacturers/#{@allcity.id}/bikes"
+
+      expect(page).to have_link "Update #{@horse.name}"
+      expect(page).to have_link "Update #{@bigblock.name}"
+      expect(page).to have_link "Update #{@gorrilla.name}"
+
+      click_link "Update #{@horse.name}"
+
+      expect(current_path).to eq "/bikes/#{@horse.id}/edit"
+    end
+  end
+
 end
