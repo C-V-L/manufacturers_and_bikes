@@ -1,7 +1,8 @@
 <h1>Manufacturers</h1>
+<h2><%=  link_to "New Manufacturer", '/manufacturers/new'  %></h2>
+<% @manufacturers.each do |manufacturer| %>
+  <h3><%= link_to "#{manufacturer.name}", "/manufacturers/#{manufacturer.id}" %> | <%= link_to "Update #{manufacturer.name}", "/manufacturers/#{manufacturer.id}/edit" %></h3>
 
-<% @manufacturers.each do |manu| %>
-  <h3><%= manu.name %></h3>
-  <p><%=  manu.created_at %> </p>
+  <p><%=  manufacturer.created_at %> </p>
 
 <% end %>
