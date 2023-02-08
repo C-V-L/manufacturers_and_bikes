@@ -18,6 +18,13 @@ class ManufacturerBikesController < ApplicationController
     bike = manufacturer.bikes.create!(bike_params)
     redirect_to "/manufacturers/#{manufacturer.id}/bikes"
   end
+  
+  def destroy
+    manufacturer = Manufacturer.find(params[:id])
+    bike = Bike.find(params[:bike_id])
+    bike.destroy
+    redirect_to "/manufacturers/#{manufacturer.id}/bikes"
+  end
 
   private
   def bike_params

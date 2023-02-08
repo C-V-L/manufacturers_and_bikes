@@ -39,7 +39,8 @@ RSpec.describe 'Manufacturer Index' do
       expect(current_path).to eq "/manufacturers/#{@allcity.id}/edit"
     end
   end
-  describe 'user story 17' do
+  
+  describe 'user story 21' do
     it 'next to each manufacturer is a link to their update page' do 
       visit "/manufacturers/" 
 

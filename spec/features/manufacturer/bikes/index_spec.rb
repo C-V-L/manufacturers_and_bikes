@@ -57,11 +57,25 @@ RSpec.describe 'Manufacturer Bikes Index' do
 
       fill_in "Minimum wheel size", with: 650
       click_button "Filter Wheel Size"
-      
+
       expect(page).to have_content @gorrilla.name
       expect(page).to have_content @horse.name
       expect(page).to_not have_content @bigblock.name
 
+    end
+  end
+
+  describe 'user story 22' do 
+    it 'next to each bike is a link to delete the bike' do 
+      visit "manufacturers/#{@allcity.id}/bikes"
+      expect(page).to have_content @horse.name
+      expect(page).to have_link "Delete #{@horse.name}"
+      expect(page).to have_link "Delete #{@gorrilla.name}"
+      expect(page).to have_link "Delete #{@bigblock.name}"
+
+      click_link "Delete #{@horse.name}"
+      expect(current_path).to eq "/manufacturers/#{@allcity.id}/bikes"
+      expect(page).to_not have_content @horse.name
     end
   end
 end
