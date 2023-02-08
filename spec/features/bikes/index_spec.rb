@@ -54,4 +54,18 @@ RSpec.describe 'Bikes Index' do
       expect(current_path).to eq "/bikes/#{@horse.id}/edit"
     end
   end
+
+  describe 'user story 22' do 
+    it 'next to each bike is a link to delete the bike' do 
+      visit "/bikes"
+      expect(page).to have_content @horse.name
+      expect(page).to have_link "Delete #{@horse.name}"
+      expect(page).to have_link "Delete #{@monkey.name}"
+      expect(page).to have_link "Delete #{@roubaix.name}"
+
+      click_link "Delete #{@horse.name}"
+      expect(current_path).to eq "/bikes"
+      expect(page).to_not have_content @horse.name
+    end
+  end
 end

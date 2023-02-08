@@ -8,4 +8,9 @@ class Bike < ApplicationRecord
   def self.sort_alphabetically
     order(:name)
   end
+
+  def self.filter_by_wheelsize(wheelsize)
+    size = wheelsize.to_i
+    where("wheelsize >= #{size}")
+  end
 end

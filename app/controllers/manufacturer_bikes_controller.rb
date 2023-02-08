@@ -4,6 +4,8 @@ class ManufacturerBikesController < ApplicationController
     @bikes = @manufacturer.bikes
     if params[:sort] == "alphabetically"
       @bikes = @manufacturer.bikes.sort_alphabetically
+    elsif params["Minimum_wheel_size"] != nil
+      @bikes = @manufacturer.bikes.filter_by_wheelsize(params["Minimum_wheel_size"])
     end
   end
 
@@ -16,9 +18,12 @@ class ManufacturerBikesController < ApplicationController
     bike = manufacturer.bikes.create!(bike_params)
     redirect_to "/manufacturers/#{manufacturer.id}/bikes"
   end
-
-  def sort_bikes_alphabetically
-    bikes.sort_alphabetically
+  
+  def destroy
+    manufacturer = Manufacturer.find(params[:id])
+    bike = Bike.find(params[:bike_id])
+    bike.destroy
+    redirect_to "/manufacturers/#{manufacturer.id}/bikes"
   end
 
   private

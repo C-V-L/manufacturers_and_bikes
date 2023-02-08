@@ -1,10 +1,3 @@
-# User Story 1, Parent Index 
-
-# For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
-
 require 'rails_helper'
 
 RSpec.describe 'Manufacturer Index' do
@@ -46,5 +39,19 @@ RSpec.describe 'Manufacturer Index' do
       expect(current_path).to eq "/manufacturers/#{@allcity.id}/edit"
     end
   end
+  
+  describe 'user story 21' do
+    it 'next to each manufacturer is a link to their update page' do 
+      visit "/manufacturers/" 
 
+      expect(page).to have_content @allcity.name
+      expect(page).to have_link "Delete #{@allcity.name}"
+      expect(page).to have_link "Delete #{@special.name}"
+      expect(page).to have_link "Delete #{@surly.name}"
+
+      click_link "Delete #{@allcity.name}"
+      expect(current_path).to eq "/manufacturers"
+      expect(page).to_not have_content @allcity.name
+    end
+  end
 end
