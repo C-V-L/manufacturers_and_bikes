@@ -19,15 +19,6 @@ class ManufacturerBikesController < ApplicationController
     redirect_to "/manufacturers/#{manufacturer.id}/bikes"
   end
 
-  def sort_bikes_alphabetically
-    bikes.sort_alphabetically
-  end
-
-  def filter_by_wheelsize(size)
-    require 'pry'; binding.pry
-    where(:wheelsize > size)
-  end
-
   private
   def bike_params
     params.permit(:name, :wheelsize, :carbon)
